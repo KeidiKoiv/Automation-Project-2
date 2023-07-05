@@ -30,8 +30,8 @@ describe('Issue details editing', () => {
       cy.get('[data-testid="select-option:Pickle Rick"]').click();
 
       cy.get('[data-testid="select:reporter"]').click('bottomRight');
-      cy.get('[data-testid="select-option:Pickle Rick"]').click();
-      cy.get('[data-testid="select:reporter"]').should('have.text', 'Pickle Rick');
+      cy.get('[data-testid="select-option:Baby Yoda"]').click();
+      cy.get('[data-testid="select:reporter"]').should('have.text', 'Baby Yoda');
 
       cy.get('[data-testid="select:priority"]').click('bottomRight');
       cy.get('[data-testid="select-option:Highest"]').click();
