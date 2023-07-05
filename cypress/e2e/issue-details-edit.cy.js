@@ -25,6 +25,9 @@ describe('Issue details editing', () => {
       cy.get('[data-testid="select-option:Baby Yoda"]').click();
       cy.get('[data-testid="select:assignees"]').should('contain', 'Baby Yoda');
       cy.get('[data-testid="select:assignees"]').should('contain', 'Lord Gaben');
+      //Select Pickle Rick from assignee dropdown
+      cy.get('[data-testid="select:userIds"]').click()
+      cy.get('[data-testid="select-option:Pickle Rick"]').click();
 
       cy.get('[data-testid="select:reporter"]').click('bottomRight');
       cy.get('[data-testid="select-option:Pickle Rick"]').click();

@@ -1,9 +1,9 @@
 describe('Issue create', () => {
   beforeEach(() => {
     cy.visit('/');
-    cy.url().should('eq', 'https://jira.ivorreic.com/project').then((url) => {
-    //System will already open issue creating modal in beforeEach block  
-    cy.visit(url + '/board?modal-issue-create=true');
+    cy.url().should('eq', `${Cypress.env('baseUrl')}project/board`).then((url) => {
+      //System will already open issue creating modal in beforeEach block  
+      cy.visit(url + '/board?modal-issue-create=true');
     });
   });
 
@@ -13,7 +13,7 @@ describe('Issue create', () => {
     //System finds modal for creating issue and does next steps inside of it
     cy.get('[data-testid="modal:issue-create"]').within(() => {
 
-      //Open issue type dropdown, write "Bug" in text box and click
+      //Open issue type dropdown, select bug and click
       cy.get('[data-testid="select:type"]').click();
       cy.get('input[class="sc-Rmtcm gJIJXg"]').first().click()
         .type('Bug')
@@ -91,7 +91,7 @@ import { faker } from '@faker-js/faker';
 describe('Issue create', () => {
   beforeEach(() => {
     cy.visit('/');
-    cy.url().should('eq', 'https://jira.ivorreic.com/project').then((url) => {
+    cy.url().should('eq', `${Cypress.env('baseUrl')}project/board`).then((url) => {
       //System will already open issue creating modal in beforeEach block  
       cy.visit(url + '/board?modal-issue-create=true');
     });
