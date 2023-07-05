@@ -10,10 +10,10 @@ describe('Issue details editing', () => {
   it('Should update type, status, assignees, reporter, priority successfully', () => {
     getIssueDetailsModal().within(() => {
       cy.get('[data-testid="select:type"]').click('bottomRight');
-      cy.get('[data-testid="select-option:Story"]')
+      cy.get('[data-testid="select-option:Bug"]')
           .trigger('mouseover')
           .trigger('click');
-      cy.get('[data-testid="select:type"]').should('contain', 'Story');
+      cy.get('[data-testid="select:type"]').should('contain', 'Bug');
 
       cy.get('[data-testid="select:status"]').click('bottomRight');
       cy.get('[data-testid="select-option:Done"]').click();
@@ -31,14 +31,14 @@ describe('Issue details editing', () => {
       cy.get('[data-testid="select:reporter"]').should('have.text', 'Pickle Rick');
 
       cy.get('[data-testid="select:priority"]').click('bottomRight');
-      cy.get('[data-testid="select-option:Medium"]').click();
-      cy.get('[data-testid="select:priority"]').should('have.text', 'Medium');
+      cy.get('[data-testid="select-option:Highest"]').click();
+      cy.get('[data-testid="select:priority"]').should('have.text', 'Highest');
     });
   });
 
   it('Should update title, description successfully', () => {
-    const title = 'TEST_TITLE';
-    const description = 'TEST_DESCRIPTION';
+    const title = 'TEST_TITLE_KEIDI123';
+    const description = 'TEST_DESCRIPTION_KEIDI123';
 
     getIssueDetailsModal().within(() => {
       cy.get('textarea[placeholder="Short summary"]')
