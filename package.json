@@ -9,11 +9,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-<<<<<<< HEAD
-    "@faker-js/faker": "^8.0.2",
-=======
     "@faker-js/faker": "^8.0.1",
->>>>>>> 9e83fe69d0448146b380cc169865cbc4ad538ed0
     "cypress": "^10.9.0"
   }
 }
