@@ -16,13 +16,11 @@ describe('Issue delete', () => {
     //Assert that issue detail view modal is visible
     cy.get('[data-testid="modal:issue-details"]').should('be.visible')
 
-    //Find delete icon and click on it
     cy.get('[data-testid="icon:trash"]').click()
 
     //Make sure a confirmation window appears and click on "Delete Issue"
     cy.get('[data-testid="modal:confirm"]').contains('Delete issue').click()
 
-    //Assert that deletion confirmation dialogue does not exist after
     cy.get('[data-testid="modal:confirm"]').should('not.exist')
 
     //Assert that Backlog list does not have deleted issue
@@ -36,29 +34,15 @@ describe('Issue delete', () => {
 
 // Task 2
 
-
-describe('Cancelling the issue deletion process', () => {
-  beforeEach(() => {
-    cy.visit('/');
-    cy.url().should('eq', `${Cypress.env('baseUrl')}project`).then((url) => {
-      cy.visit(url + '/board');
-      //Find and open first issue from Backlog list
-      cy.get('[data-testid="board-list:backlog')
-      cy.contains('You can use rich text with images in issue descriptions.').click();
-    });
-  });
-
   it('should cancel the issue deletion', () => {
-    //Assert that issue detail view modal is visible
-    cy.get('[data-testid="modal:issue-details"]').should('be.visible')
+    
+    cy.get('[data-testid="modal:issue-details"]').should('be.visible').click()
 
-    //Find delete icon and click on it
     cy.get('[data-testid="icon:trash"]').click()
 
     //Cancel the deletion in the confirmation pop-up
     cy.get('[data-testid="modal:confirm"]').contains('Cancel').click()
 
-    //Assert that deletion confirmation dialogue is not visible
     cy.get('[data-testid="modal:confirm"]').should('not.exist')
 
     //Leave the issue detail view
@@ -72,4 +56,3 @@ describe('Cancelling the issue deletion process', () => {
     });
   });
 
-});
